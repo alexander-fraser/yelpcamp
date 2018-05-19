@@ -1,35 +1,13 @@
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose");
+    mongoose    = require("mongoose"),
+    Campground  = require("./models/campground"),
+    seedDB      = require("./seeds");
 
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.set("view engine", "ejs");
-
-// Mongo DB Schema setup
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
-
-/* Campground.create(
-    { 
-        name: "Cedar Rapids", 
-        image: "http://chile.travel/wp-content/uploads/bfi_thumb/Camping-INACH-ACT250-mpo4pzd1ap2psy7lkn7j26qrkfg29r2og97iro1ha0.jpg",
-        description: "These are incredibly fast-flowing rapids. Dangerous. Stay Clear."
-    }, function(error, campground) {
-        if(error) {
-            console.log(error);
-        } else {
-            console.log("New campground");
-            console.log(campground);
-        }
-    }
-); */
 
 app.get("/", function (req, res) {
     res.render("landing.ejs");
@@ -79,6 +57,6 @@ app.get("/campgrounds/:id", function (req, res) {
     });
 });
 
-app.listen(3000, function() {
+app.listen(5000, function() {
     console.log("The YelpCamp server has started!");
 });
