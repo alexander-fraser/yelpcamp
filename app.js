@@ -5,7 +5,8 @@ var express         = require("express"),
     mongoose        = require("mongoose"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
-    methodOverride  = require("method-override");
+    methodOverride  = require("method-override"),
+    flash           = require("connect-flash");
 
 // Import the declarations for the MongoDB databases.
 var Campground      = require("./models/campground"),
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // Passport Configuration
 app.use(require("express-session")({
@@ -41,6 +43,8 @@ passport.deserializeUser(User.deserializeUser());
 // Set the login status of the user, for use by the header.ejs file.
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
