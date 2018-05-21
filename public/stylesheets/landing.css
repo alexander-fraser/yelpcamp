@@ -1,0 +1,21 @@
+body {
+    background: url(https://ghanonebavarojazb.com/wp-content/uploads/2017/07/secret-raw.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+html {
+    height: 100%;
+}
+
+.content {
+    text-align: center;
+    padding-top: 15%;
+    text-shadow: 2px 2px 5px black;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5em;
+}

@@ -1,9 +1,18 @@
-<% include partials/header %>
+<!DOCTYPE HTML>
+<html>
 
-<h1>Landing Page</h1>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/landing.css">
 
-<p>Welcome to YelpCamp</p>
+    <title>YelpCamp</title>
+</head>
 
-<a href="/campgrounds">View All Campgrounds</a>
+<body>
+    <div class="content">
+        <h1>Welcome to YelpCamp</h1>
+        <a class="btn btn-lg btn-success shadow" href="/campgrounds">View All Campgrounds</a>
+    </div>
 
 <% include partials/footer %>
