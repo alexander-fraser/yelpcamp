@@ -9,7 +9,7 @@ router.get("/", function (req, res) {
     res.render("landing.ejs");
 });
 
-// AUTHORIZATION ROUTES
+// AUTHENTICATION ROUTES
 router.get("/register", function (req, res) {
     res.render("register.ejs");
 });
